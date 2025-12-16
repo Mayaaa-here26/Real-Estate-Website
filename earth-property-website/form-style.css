@@ -1,10 +1,15 @@
-/* Reset */
+/* =======================
+   RESET
+======================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* =======================
+   BODY
+======================= */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #f5a623 0%, #f7dc6f 50%, #f39c12 100%);
@@ -12,7 +17,9 @@ body {
     padding: 20px;
 }
 
-/* Container */
+/* =======================
+   PAGE FADE + SLIDE DOWN
+======================= */
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -20,10 +27,26 @@ body {
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    animation: fadeIn 0.8s ease-in;
+
+    opacity: 0;
+    transform: translateY(-40px);
+    animation: slideDownFade 0.9s ease-out forwards;
 }
 
-/* Header */
+@keyframes slideDownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =======================
+   HEADER
+======================= */
 header {
     text-align: center;
     margin-bottom: 40px;
@@ -48,7 +71,9 @@ h1 {
     font-size: 1.1em;
 }
 
-/* Navigation */
+/* =======================
+   NAVIGATION
+======================= */
 nav {
     background: linear-gradient(135deg, #f39c12 0%, #f5a623 100%);
     padding: 15px;
@@ -70,15 +95,38 @@ nav a {
     font-weight: 600;
     padding: 8px 20px;
     border-radius: 5px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
-nav a:hover, nav a.active {
+nav a:hover {
     background: rgba(255,255,255,0.2);
     transform: translateY(-2px);
 }
 
-/* Motivational Banner */
+/* =======================
+   SECTIONS
+======================= */
+section {
+    margin-bottom: 50px;
+}
+
+h2 {
+    color: #2c3e50;
+    font-size: 2em;
+    margin-bottom: 15px;
+    border-left: 5px solid #f39c12;
+    padding-left: 10px;
+}
+
+p {
+    color: #444;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* =======================
+   MOTIVATIONAL BANNER
+======================= */
 .motivational-banner {
     background-color: #f39c12;
     color: #fff;
@@ -91,7 +139,9 @@ nav a:hover, nav a.active {
     line-height: 1.4;
 }
 
-/* Form Wrapper */
+/* =======================
+   FORM WRAPPER
+======================= */
 .form-wrapper {
     max-width: 600px;
     margin: 0 auto;
@@ -113,7 +163,9 @@ nav a:hover, nav a.active {
     margin-bottom: 25px;
 }
 
-/* Form Elements */
+/* =======================
+   FORM ELEMENTS
+======================= */
 form label {
     font-weight: bold;
     color: #333;
@@ -147,7 +199,9 @@ form textarea {
     font-weight: normal;
 }
 
-/* Submit Button */
+/* =======================
+   SUBMIT BUTTON
+======================= */
 form button {
     width: 100%;
     padding: 15px;
@@ -164,8 +218,14 @@ form button:hover {
     background-color: #d35400;
 }
 
-/* Responsive */
-@media(max-width: 820px) {
-    .logo { width: 120px; }
-    .form-wrapper { padding: 25px 20px; }
+/* =======================
+   RESPONSIVE
+======================= */
+@media (max-width: 820px) {
+    .logo {
+        width: 120px;
+    }
+    .form-wrapper {
+        padding: 25px 20px;
+    }
 }

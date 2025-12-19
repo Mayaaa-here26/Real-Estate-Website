@@ -16,7 +16,7 @@ This project is a multi-page real estate website developed using HTML, CSS, and 
 It showcases property listings, inquiry forms, and company information.
 
 ## Live Website
-https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/
+https://mayaaa-here26.github.io/Real-Estate-Website/
 
 ## Tools Used
 - HTML5

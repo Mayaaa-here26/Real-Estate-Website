@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Listings - Islamabad Real Estate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5a623 0%, #f7dc6f 50%, #f39c12 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #f39c12;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        h1 {
+            color: #f39c12;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        nav {
+            background: linear-gradient(135deg, #f39c12 0%, #f5a623 100%);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .table-section {
+            margin-bottom: 50px;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #f39c12;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #f39c12 0%, #f5a623 100%);
+            color: white;
+        }
+
+        th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+        }
+
+        tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(to right, #fef5e7, #fff);
+            transform: scale(1.01);
+            box-shadow: 0 3px 10px rgba(243, 156, 18, 0.3);
+        }
+
+        .price {
+            font-weight: bold;
+            color: #27ae60;
+            font-size: 1.1em;
+        }
+
+        .status {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .available {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .sold {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .location {
+            color: #f39c12;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #f39c12 0%, #f5a623 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="earth properties.png" alt="Earth Properties Logo" class="logo">
+            <h1>Earth Properties</h1>
+            <p class="subtitle">We are Life changers - Islamabad's Premium Real Estate</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="table.html">Properties</a></li>
+                <li><a href="form.html">Contact Us</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <!-- Residential Properties Table -->
+        <div class="table-section">
+            <h2>Residential Properties</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property ID</th>
+                            <th>Location</th>
+                            <th>Type</th>
+                            <th>Size</th>
+                            <th>Bedrooms</th>
+                            <th>Price (PKR)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>RES-001</td>
+                            <td class="location">DHA Phase 2</td>
+                            <td>House</td>
+                            <td>10 Marla</td>
+                            <td>4</td>
+                            <td class="price">4.5 Crore</td>
+                            <td><span class="status available">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>RES-002</td>
+                            <td class="location">Bahria Town Phase 7</td>
+                            <td>Villa</td>
+                            <td>1 Kanal</td>
+                            <td>5</td>
+                            <td class="price">8.2 Crore</td>
+                            <td><span class="status available">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>RES-003</td>
+                            <td class="location">F-10 Markaz</td>
+                            <td>Apartment</td>
+                            <td>1200 sq ft</td>
+                            <td>3</td>
+                            <td class="price">2.8 Crore</td>
+                            <td><span class="status sold">Sold</span></td>
+                        </tr>
+                        <tr>
+                            <td>RES-004</td>
+                            <td class="location">G-13 Sector</td>
+                            <td>House</td>
+                            <td>5 Marla</td>
+                            <td>3</td>
+                            <td class="price">1.9 Crore</td>
+                            <td><span class="status available">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>RES-005</td>
+                            <td class="location">Gulberg Greens</td>
+                            <td>Apartment</td>
+                            <td>950 sq ft</td>
+                            <td>2</td>
+                            <td class="price">1.5 Crore</td>
+                            <td><span class="status pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>RES-006</td>
+                            <td class="location">E-11 Sector</td>
+                            <td>House</td>
+                            <td>7 Marla</td>
+                            <td>4</td>
+                            <td class="price">3.2 Crore</td>
+                            <td><span class="status available">Available</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Commercial Properties Table -->
+        <div class="table-section">
+            <h2>Commercial Properties</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property ID</th>
+                            <th>Location</th>
+                            <th>Type</th>
+                            <th>Area</th>
+                            <th>Floors</th>
+                            <th>Price (PKR)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>COM-001</td>
+                            <td class="location">Blue Area</td>
+                            <td>Office Space</td>
+                            <td>2500 sq ft</td>
+                            <td>1</td>
+                            <td class="price">6.5 Crore</td>
+                            <td><span class="status available">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>COM-002</td>
+                            <td class="location">F-7 Markaz</td>
+                            <td>Shop</td>
+                            <td>450 sq ft</td>
+                            <td>Ground</td>
+                            <td class="price">1.8 Crore</td>
+                            <td><span class="status sold">Sold</span></td>
+                        </tr>
+                        <tr>
+                            <td>COM-003</td>
+                            <td class="location">I-8 Markaz</td>
+                            <td>Plaza</td>
+                            <td>8000 sq ft</td>
+                            <td>4</td>
+                            <td class="price">12 Crore</td>
+                            <td><span class="status available">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>COM-004</td>
+                            <td class="location">Centaurus Mall</td>
+                            <td>Shop</td>
+                            <td>650 sq ft</td>
+                            <td>2nd Floor</td>
+                            <td class="price">3.5 Crore</td>
+                            <td><span class="status pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>COM-005</td>
+                            <td class="location">G-11 Markaz</td>
+                            <td>Warehouse</td>
+                            <td>15000 sq ft</td>
+                            <td>1</td>
+                            <td class="price">9.8 Crore</td>
+                            <td><span class="status available">Available</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Plot/Land Table -->
+        <div class="table-section">
+            <h2>Plots & Land</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Plot ID</th>
+                            <th>Location</th>
+                            <th>Size</th>
+                            <th>Type</th>
+                            <th>Corner</th>
+                            <th>Price (PKR)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PLT-001</td>
+                            <td class="location">DHA Phase 5</td>
+                            <td>10 Marla</td>
+                            <td>Residential</td>
+                            <td>Yes</td>
+                            <td class="price">3.2 Crore</td>
+                            <td><span class="status available">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>PLT-002</td>
+                            <td class="location">Bahria Enclave</td>
+                            <td>5 Marla</td>
+                            <td>Residential</td>
+                            <td>No</td>
+                            <td class="price">85 Lakh</td>
+                            <td><span class="status available">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>PLT-003</td>
+                            <td class="location">MPCHS B-17</td>
+                            <td>1 Kanal</td>
+                            <td>Residential</td>
+                            <td>Yes</td>
+                            <td class="price">2.5 Crore</td>
+                            <td><span class="status sold">Sold</span></td>
+                        </tr>
+                        <tr>
+                            <td>PLT-004</td>
+                            <td class="location">Top City-1</td>
+                            <td>7 Marla</td>
+                            <td>Residential</td>
+                            <td>No</td>
+                            <td class="price">1.4 Crore</td>
+                            <td><span class="status pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>PLT-005</td>
+                            <td class="location">G-14 Sector</td>
+                            <td>8 Marla</td>
+                            <td>Commercial</td>
+                            <td>Yes</td>
+                            <td class="price">4.8 Crore</td>
+                            <td><span class="status available">Available</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 <strong>Earth Properties</strong> - We are Life changers</p>
+            <p>Islamabad's Trusted Real Estate Partner | Group Project - ICT Course</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.table-section').forEach((section) => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease-out';
+            observer.observe(section);
+        });
+
+        // Hover effect enhancement
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                this.style.cursor = 'pointer';
+            });
+        });
+    </script>
+</body>
+</html>

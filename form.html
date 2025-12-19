@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Earth Properties — Inquiry Form</title>
+<link rel="stylesheet" href="form-style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <header>
+        <img src="image 2.png" class="logo" alt="Earth Property Logo">
+        <h1>Earth Property</h1>
+        <p class="subtitle">Premium Real Estate — Islamabad</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="form.html" class="active">Form</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Motivational Banner -->
+    <div class="motivational-banner">
+        <p>Secure Your Future Today – "YOUR DREAM PLOT IS JUST ONE FORM AWAY"<br>
+        Invest in Your Dream Plot with Earth Properties!</p>
+    </div>
+
+    <!-- Inquiry Form -->
+    <div class="form-wrapper">
+        <h2>Property Inquiry Form</h2>
+        <p>Fill the following details to inquire about your preferred property.</p>
+        <form>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" placeholder="0300-0000000" required>
+
+            <label for="ptype">Property Type</label>
+            <select id="ptype">
+                <option value="">-- Select Property Type --</option>
+                <option>Residential Plot</option>
+                <option>Commercial Plot</option>
+                <option>House</option>
+                <option>Apartment</option>
+            </select>
+
+            <label>Budget Range</label>
+            <div class="radio-group">
+                <label><input type="radio" name="budget"> 30–50 Lac</label>
+                <label><input type="radio" name="budget"> 50–80 Lac</label>
+                <label><input type="radio" name="budget"> 1 Crore +</label>
+            </div>
+
+            <label for="message">Additional Details</label>
+            <textarea id="message" placeholder="Write your message..."></textarea>
+
+            <button type="submit">Submit Inquiry</button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

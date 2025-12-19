@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Earth Property — About</title>
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f5a623 0%, #f7dc6f 50%, #f39c12 100%);
+        min-height:100vh;
+        padding:20px;
+    }
+
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: rgba(255,255,255,0.95);
+        border-radius:20px;
+        padding:40px;
+        box-shadow:0 20px 60px rgba(0,0,0,0.3);
+        animation: fadeIn 0.8s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from { opacity:0; transform:translateY(-30px); }
+        to { opacity:1; transform:translateY(0); }
+    }
+
+    header {
+        text-align:center;
+        margin-bottom:40px;
+        padding-bottom:20px;
+        border-bottom:3px solid #f39c12;
+    }
+
+    .logo {
+        width:150px;
+        height:auto;
+        margin-bottom:20px;
+    }
+
+    h1 { color:#f39c12; font-size:2.5em; margin-bottom:5px; }
+    .subtitle { color:#666; font-size:1.1em; }
+
+    nav {
+        background: linear-gradient(135deg, #f39c12 0%, #f5a623 100%);
+        padding:15px;
+        border-radius:10px;
+        margin-bottom:30px;
+    }
+
+    nav ul {
+        list-style:none;
+        display:flex;
+        justify-content:center;
+        gap:30px;
+        flex-wrap:wrap;
+    }
+
+    nav a {
+        color:white;
+        text-decoration:none;
+        font-weight:600;
+        padding:8px 20px;
+        border-radius:5px;
+        transition:0.3s;
+    }
+    nav a:hover { background:rgba(255,255,255,0.2); transform:translateY(-2px); }
+
+    section { margin-bottom:50px; animation: slideUp 0.8s ease-out; }
+    @keyframes slideUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+
+    h2 { color:#2c3e50; font-size:2em; margin-bottom:15px; border-left:5px solid #f39c12; padding-left:10px; }
+    p { color:#444; margin-bottom:15px; line-height:1.6; }
+
+    .services, .gallery, .contact { display:grid; gap:20px; }
+
+    .gallery img { width:100%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.25); }
+
+    footer { margin-top:40px; text-align:center; color:#666; padding-top:20px; border-top:2px solid #eee; }
+
+    @media(max-width:820px){
+        .logo { width:120px; }
+        nav ul { flex-direction:column; gap:10px; }
+        .services, .gallery, .contact { grid-template-columns:1fr; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+    <img src="image 2.PNG" class="logo">
+    <h1>Earth Property</h1>
+    <p class="subtitle">About Us & Our Services</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="table.html">Table</a></li>
+        <li><a href="form.html">Form</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+</nav>
+
+<section class="about">
+    <h2>About Us</h2>
+    <p>Earth Property is a leading real estate agency in Islamabad, committed to connecting clients with premium residential and commercial properties. Our mission is to make property buying, selling, and investing seamless and trustworthy.</p>
+</section>
+
+<section class="services">
+    <h2>Our Services</h2>
+    <p>- Residential & Commercial Property Listings</p>
+    <p>- Property Valuation & Consultancy</p>
+    <p>- Investment Advisory</p>
+    <p>- Legal Assistance for Transactions</p>
+</section>
+
+<section class="gallery">
+    <h2>Gallery</h2>
+    <img src="image 2.PNG" alt="Office or property image">
+    <img src="image 2.PNG" alt="Property showcase">
+</section>
+
+<section class="contact">
+    <h2>Contact Info</h2>
+    <p>Email: info@earthproperty.com</p>
+    <p>Phone: +92 300 1234567</p>
+    <p>Address: 123 Main Street, Islamabad, Pakistan</p>
+</section>
+
+<footer>
+    &copy; <span id="year"></span> Earth Property — ICT Project
+</footer>
+</div>
+
+<script>
+// Set current year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Fade-in sections on scroll
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+});
+
+document.querySelectorAll('section').forEach(sec => {
+    sec.style.opacity = 0;
+    sec.style.transform = 'translateY(30px)';
+    sec.style.transition = 'all 0.6s ease-out';
+    observer.observe(sec);
+});
+</script>
+</body>
+</html>

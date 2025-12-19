@@ -18,6 +18,9 @@ It showcases property listings, inquiry forms, and company information.
 ## Live Website
 https://mayaaa-here26.github.io/Real-Estate-Website/
 
+## Website
+GitHub/Real-Estate-Website/earth-property-website/index.html
+
 ## Tools Used
 - HTML5
 - CSS3
